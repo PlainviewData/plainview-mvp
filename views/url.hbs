@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Plainview</title>
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    {{!-- <div class="row nav">
+      <header class="col-md-12">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header col-md-4">
+              <a class="navbar-brand" href="#">Logo</a>
+            </div>
+            <div class="search-bar col-md-4">
+              <form class="navbar-form" role="search">
+                <div class="search-form">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                  </div>
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+    </div> --}}
+
+    <div class="row message">
+      <div class="col-md-4 col-md-offset-4" id="success-message">
+        <div class="alert alert-success" role="alert">
+          <img class="icon" src="https://placeimg.com/20/20/animals">
+          <span>Success. </span>
+          <a href="#" class="alert-link" data-toggle="modal" data-target="#articleInfoModal">Click here for article info</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row message">
+      <div class="col-md-4 col-md-offset-4" id="warning-message">
+        <div class="alert alert-warning" role="alert">
+          <span>Sorry, the page can't be loaded. </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row page">
+      <div class="col-md-12" id="webpage">
+        <div class="frame-container">
+          <iframe id="quote-page" height="100%" src="{{archive.url}}">
+          </iframe>
+        </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="articleInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="articleInfoTitle">Article Info</h4>
+        </div>
+        <div class="modal-body">
+          <table class="table table-bordered article-info-table">
+            <tbody>
+              <tr>
+                <td class="table-title">Article Headline</td>
+                <td class="table-content">{{article.headline}}</td>
+              </tr>
+              <tr>
+                <td class="table-title">Author</td>
+                <td class="table-content">{{article.author}}</td>
+              </tr>
+              <tr>
+                <td class="table-title">Date Posted</td>
+                <td class="table-content">{{article.date_posted}}</td>
+              </tr>
+              <tr>
+                <td class="table-title">Date Returned</td>
+                <td class="table-content">{{archive.times.finalized}}</td>
+              </tr>
+              <tr>
+                <td class="table-title">Story</td>
+                <td class="table-content">{{article.text}}</td>
+              </tr>
+              <tr>
+                <td class="link-to-archiveis" colspan="2">
+                  <a href="http://archive.is/">Archive.is</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/libs/jquery.js"></script>
+  <script src="/js/libs/bootstrap.min.js"></script>
+  <script src="/js/builder.js"></script>
+</body>
+</html>
